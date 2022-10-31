@@ -1,9 +1,21 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
-}
+    <nav>
+      <a href="/">
+        <i>{"<Vultus/>"}</i>
+        <span>Recaipe</span>
+      </a>
+      <div>
+        <Link to="/">Home</Link>
+        <Link to="about">About</Link>
+        <Link to="register">Register</Link>
+        <Link to="logout">Logout</Link>
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
