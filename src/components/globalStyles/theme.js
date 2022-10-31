@@ -1,7 +1,8 @@
 const theme = {
   colors: {
-    navbarBgColor: "#E1F1DD",
+    navbarBgColor: "#e1f1dd",
     mainColor: "#00adb5",
-    logoColor: "#393E46",
+    logoColor: "'#393e46',",
   },
 };
+export default theme;
