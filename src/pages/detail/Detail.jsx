@@ -11,12 +11,12 @@ import { useLocation } from "react-router-dom";
 import diet from "../../assets/diet.svg";
 const Detail = () => {
   const { state } = useLocation();
-  console.log("state geldi mi :", state);
+
   return (
     <DetailContainer>
       <HeaderContainer>
         <h1>{state.label}</h1>
-        <img src={diet} alt="" />
+        <img src={diet} alt="diet" />
       </HeaderContainer>
       <DetailPart>
         <OtherPart>
