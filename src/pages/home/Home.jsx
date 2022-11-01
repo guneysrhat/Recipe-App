@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import Cards from "../../components/cards/Cards";
-import { HomeImg, ImgDiv } from "./Home.style";
+import { HeaderText, HomeImg, ImgDiv } from "./Home.style";
 import HomeSvg from "../../assets/home.svg";
 
 const Home = () => {
@@ -10,7 +10,7 @@ const Home = () => {
   const APP_KEY = "eb8cae3b0f8da5c9d3648e6a013be9c4";
   const [query, setQuery] = useState("egg");
   const [selectedMeal, setSelectedMeal] = useState("breakfast");
-  const [recipes, setRecipes] = useState();
+  const [recipes, setRecipes] = useState(null);
   const mealType = ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"];
 
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
@@ -45,7 +45,10 @@ const Home = () => {
           <HomeImg src={HomeSvg} />
         </ImgDiv>
       )}
-      <Cards />
+      {recipes?.length === 0 && (
+        <HeaderText> The Food can not be found</HeaderText>
+      )}
+      {recipes?.length > 0 && <Cards recipes={recipes} />}
     </div>
   );
 };
