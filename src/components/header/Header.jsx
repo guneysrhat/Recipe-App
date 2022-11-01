@@ -9,7 +9,7 @@ import {
   Select,
 } from "./Header.style";
 
-const Header = ({ setQuery }) => {
+const Header = ({ setQuery, setSelectedMeal, mealType, getData }) => {
   return (
     <HeaderContainer>
       <MainHeader>Recipe App</MainHeader>
@@ -23,8 +23,16 @@ const Header = ({ setQuery }) => {
 
         <Button type="submit">SEARCH</Button>
 
-        <Select name="mealType" id="mealType" onChange={(e)=>()}>
-
+        <Select
+          name="mealType"
+          id="mealType"
+          onChange={(e) => setSelectedMeal(e.target.value)}
+        >
+          {mealType.map((meal, index) => (
+            <option value={meal} key={index}>
+              {meal}
+            </option>
+          ))}
         </Select>
       </FormContainer>
     </HeaderContainer>
